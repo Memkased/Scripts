@@ -1,0 +1,103 @@
+local Material = loadstring(game:HttpGet("https://raw.githubusercontent.com/Kinlei/MaterialLua/master/Module.lua"))()
+
+local UI = Material.Load({
+     Title = "Nen Fighting Simulator | by Nilli",
+     Style = 1,
+     SizeX = 400,
+     SizeY = 400,
+     Theme = "Light"
+})
+
+local Page = UI.New({
+    Title = "Autofarm"
+})
+
+getgenv().Nen = false
+getgenv().Agility = false
+getgenv().Durability = false
+getgenv().Strength = false
+
+local a = Page.Toggle({
+    Text = "Strength",
+    Callback = function(value)
+        getgenv().Strength = value
+        if Strength then
+            StrengthFunction()
+        end
+    end,
+    Enabled = false
+})
+
+local b = Page.Toggle({
+    Text = "Durability",
+    Callback = function(value)
+        getgenv().Durability = value
+        if Durability then
+            DurabilityFunction()
+        end
+    end,
+    Enabled = false
+})
+
+local c = Page.Toggle({
+    Text = "Agility",
+    Callback = function(value)
+        getgenv().Agility = value
+        if Agility then
+            AgilityFunction()
+        end
+    end,
+    Enabled = false
+})
+
+local d = Page.Toggle({
+    Text = "Nen",
+    Callback = function(value)
+        getgenv().Nen = value
+        if Nen then
+            NenFunction()
+        end
+    end,
+    Enabled = false
+})
+
+function DurabilityFunction()
+    spawn(function()
+        while getgenv().Durability == true do
+            local args = {[1] = "dur"}
+            game:GetService("ReplicatedStorage").Remotes.train:FireServer(unpack(args))
+            wait()
+        end
+    end)
+end
+
+
+function StrengthFunction()
+    spawn(function()
+        while getgenv().Strength == true do
+            local args = {[1] = "str"}
+            game:GetService("ReplicatedStorage").Remotes.train:FireServer(unpack(args))
+            wait()
+        end
+    end)
+end
+
+function AgilityFunction()
+    spawn(function()
+        while getgenv().Agility == true do
+            local args = {[1] = "agi"}
+            game:GetService("ReplicatedStorage").Remotes.train:FireServer(unpack(args))
+            wait()
+        end
+    end)
+end
+
+function NenFunction()
+    spawn(function()
+        while getgenv().Nen == true do
+            local args = {[1] = "nen"}
+            game:GetService("ReplicatedStorage").Remotes.train:FireServer(unpack(args))
+            wait()
+        end
+    end)
+end
