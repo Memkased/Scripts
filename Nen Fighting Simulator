@@ -1,17 +1,15 @@
 local Material = loadstring(game:HttpGet("https://raw.githubusercontent.com/Kinlei/MaterialLua/master/Module.lua"))()
 
 local UI = Material.Load({
-     Title = "Nen Fighting Simulator | by Nilli",
+     Title = "Nen Fighting Simulator",
      Style = 1,
      SizeX = 400,
      SizeY = 400,
-     Theme = "Light"
+     Theme = "Dark"
 })
-
 local Page = UI.New({
     Title = "Autofarm"
 })
-
 getgenv().Nen = false
 getgenv().Agility = false
 getgenv().Durability = false
@@ -59,6 +57,17 @@ local d = Page.Toggle({
         end
     end,
     Enabled = false
+})
+
+local page = UI.New({
+    Title = "Credits"
+})
+
+local f = page.Button({
+    Text = "Made by Nilli",
+    Callback = function()
+        print("Made by Nilli")
+    end,
 })
 
 function DurabilityFunction()
