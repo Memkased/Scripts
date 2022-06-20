@@ -70,6 +70,14 @@ local f = page.Button({
     end,
 })
 
+local e = page.Button({
+    Text = "Discord",
+    Callback = function()
+        setclipboard("https://discord.gg/ytc4RCGS")
+    end
+})
+
+
 function DurabilityFunction()
     spawn(function()
         while getgenv().Durability == true do
